@@ -12,6 +12,10 @@ using Microsoft.Bot.Connector.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using Microsoft.Bot.Builder.Azure;
+
+using Thoughtpost.Bots.Shared;
+
 namespace ConnectWiseSmsBot
 {
     public class Startup
@@ -26,16 +30,39 @@ namespace ConnectWiseSmsBot
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            IStorage storage = new MemoryStorage();
+            AzureBlobStorage azureStorage = new AzureBlobStorage(
+                Configuration.GetSection("azureStorageConnection")?.Value,
+                Configuration.GetSection("azureStorageContainer")?.Value);
+
+            // Enable the conversation transcript middleware.
+            AzureBlobTranscriptStore blobStore = new AzureBlobTranscriptStore(
+                Configuration.GetSection("azureStorageConnection")?.Value,
+                Configuration.GetSection("azureStorageContainer")?.Value);
+
+            var transcriptMiddleware = new TranscriptLoggerMiddleware(blobStore);
+
+            services.AddSingleton<StateStorage>(sp =>
+            {
+                // Create the custom state accessor.
+                return new StateStorage(azureStorage);
+            });
+
+            services.AddSingleton<TranscriptLoggerMiddleware>(tl =>
+            {
+                return transcriptMiddleware;
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Create the credential provider to be used with the Bot Framework Adapter.
             services.AddSingleton<ICredentialProvider, ConfigurationCredentialProvider>();
 
             // Create the Bot Framework Adapter.
-            services.AddSingleton<IBotFrameworkHttpAdapter, BotFrameworkHttpAdapter>();
+            services.AddSingleton<IBotFrameworkHttpAdapter, ExtendedAdapter>();
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
-            services.AddTransient<IBot, EmptyBot>();
+            services.AddTransient<IBot, SmsBot>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

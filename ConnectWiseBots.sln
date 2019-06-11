@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FC5ED2D6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thoughtpost.ConnectWise.Tests", "tests\Thoughtpost.ConnectWise.Tests\Thoughtpost.ConnectWise.Tests.csproj", "{5899ED7A-7F36-41C9-A862-EEBFBC3BF939}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thoughtpost.Bots.Shared", "libraries\Thoughtpost.Bots.Shared\Thoughtpost.Bots.Shared.csproj", "{5F20A9D6-649D-40F9-9288-69F1B140A6C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5899ED7A-7F36-41C9-A862-EEBFBC3BF939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5899ED7A-7F36-41C9-A862-EEBFBC3BF939}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5899ED7A-7F36-41C9-A862-EEBFBC3BF939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F20A9D6-649D-40F9-9288-69F1B140A6C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F20A9D6-649D-40F9-9288-69F1B140A6C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F20A9D6-649D-40F9-9288-69F1B140A6C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F20A9D6-649D-40F9-9288-69F1B140A6C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{E3279390-6A95-4781-8B26-C35CDB6A72A3} = {380C1BC5-E769-499A-976C-CA127A8491E5}
 		{C8B47AF2-7622-433C-9872-7140ECC0B868} = {860EC8A7-2A86-4D64-B7DD-45FAE8AD1B0F}
 		{5899ED7A-7F36-41C9-A862-EEBFBC3BF939} = {FC5ED2D6-C028-4116-87F0-731F6537D5E0}
+		{5F20A9D6-649D-40F9-9288-69F1B140A6C6} = {380C1BC5-E769-499A-976C-CA127A8491E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {827FC93A-8039-4592-B53E-B0BE8CD23879}

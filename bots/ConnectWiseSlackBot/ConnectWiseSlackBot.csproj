@@ -2,14 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <ApplicationInsightsResourceId>/subscriptions/3573be58-a504-4496-9b7a-3039ab461c4e/resourcegroups/demos/providers/microsoft.insights/components/ConnectWiseSlackBotoffaxo</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/3573be58-a504-4496-9b7a-3039ab461c4e/resourcegroups/demos/providers/microsoft.insights/components/ConnectWiseSlackBotoffaxo</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights" Version="2.10.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Bot.Builder.Azure" Version="4.4.4" />
     <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.4.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\libraries\Thoughtpost.Bots.Shared\Thoughtpost.Bots.Shared.csproj" />
     <ProjectReference Include="..\..\libraries\Thoughtpost.ConnectWise\Thoughtpost.ConnectWise.csproj" />
   </ItemGroup>
 
@@ -17,6 +23,13 @@
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="blankappsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
+
+    <ItemGroup>
+      <WCFMetadata Include="Connected Services" />
+    </ItemGroup>
 
 </Project>

@@ -330,3 +330,5 @@ ASALocalRun/
 .mfractor/
 /bots/ConnectWiseSmsBot/appsettings.json
 /bots/ConnectWiseSlackBot/appsettings.json
+/tests/Thoughtpost.ConnectWise.Tests/appsettings.json
+/tests/Thoughtpost.ConnectWise.Tests/appsettings.Development.json

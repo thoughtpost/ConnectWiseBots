@@ -1,0 +1,17 @@
+{
+  "MicrosoftAppId": "",
+  "MicrosoftAppPassword": "",
+  "azureStorageConnection": "",
+  "azureStorageContainer": "",
+  "ConnectWise": {
+    "AppId": "",
+    "CompanyName": "",
+    "SiteUrl": "https://api-staging.connectwisedev.com",
+    "PublicKey": "",
+    "PrivateKey": "",
+    "ClientId": ""
+  },
+  "ApplicationInsights": {
+    "InstrumentationKey": ""
+  }
+}
